@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Живой стилистический словарь
+{% endblock %}
+
+{% block body %}
+<div class ="container mt-5">
+    <h1> Добавление файла</h1>
+    <form method="POST" action="/create-article">
+        <input type="text" name="title" id="title" class="form-control" placeholder="Введите название"><br>
+        <textarea name="intro" id="intro" class="form-control" placeholder="Введите описание"></textarea><br>
+        <textarea name="text" id="text" class="form-control" placeholder="Введите текст"></textarea>
+        <label for="status">Статус:</label>
+    <input type="radio" name="status" value="draft" checked> Черновик
+    <input type="radio" name="status" value="published"> Опубликовано
+
+         <label for="access_users">Пользователи, которым предоставить доступ (через запятую):</label>
+        <input type="text" name="access_users" id="access_users" class="form-control" placeholder="Введите логины через запятую"><br>
+
+    <input type="submit" value="Создать статью">
+    </form>
+</div>
+
+{% endblock %}

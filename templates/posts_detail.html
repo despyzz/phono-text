@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ article.title }}
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>{{ article.title }}</h1>
+
+    <div class="alert alert-info">
+        <p>{{ article.text }}</p>
+        <p><b>Дата: {{ article.date.date() }}</b></p>
+        <p><b>Автор: {{ author.login }}</b></p>
+        {% if flag %}
+          <a href="/posts/{{ article.id }}/del" class="btn btn-danger">Удалить</a>
+          <a href="/posts/{{ article.id }}/update" class="btn btn-success">Редактировать</a>
+          <a href="/posts/{{ article.id }}/get_file_history" class="btn btn-success">Посмотреть историю</a>
+
+            {% if article.status == "draft" %}
+            <a href="/posts/{{ article.id }}/publish-draft" class="btn btn-success">Опубликовать черновик</a>
+            {% endif %}
+        {% endif %}
+
+    </div>
+
+</div>
+{% endblock %}

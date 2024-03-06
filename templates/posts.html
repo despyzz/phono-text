@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Все файлы
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Все файлы</h1>
+
+    {% if articles|length > 0 %}
+        {% for el in articles %}
+        <div class="alert alert-info">
+            <h2>{{ el.title }}</h2>
+            <p> Автор: {{ authors[el.id].login }}</p>
+            <p>{{ el.intro }}</p>
+            <p><b>Дата: {{ el.date.date() }}</b></p>
+            <a href="/posts/{{ el.id }}" class="btn btn-warning">Открыть</a>
+
+        </div>
+        {% endfor %}
+
+    {%  else %}
+    <p>Еще нет файлов</p>
+    {% endif %}
+</div>
+{% endblock %}
