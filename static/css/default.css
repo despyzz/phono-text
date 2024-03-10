@@ -101,6 +101,9 @@ body {
 
 .main {
   flex: 1;
+  max-width: 1000px;
+  width: 100%;
+  align-self: center;
 }
 
 .footer {
