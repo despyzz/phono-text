@@ -5,23 +5,38 @@
 {% endblock %}
 
 {% block body %}
-<div class="container mt-5">
-    <h1>Все файлы</h1>
+<div class="posts">
+	<h1 class="posts__title">
+		Все файлы
+	</h1>
 
-    {% if articles|length > 0 %}
-        {% for el in articles %}
-        <div class="alert alert-info">
-            <h2>{{ el.title }}</h2>
-            <p> Автор: {{ authors[el.id].login }}</p>
-            <p>{{ el.intro }}</p>
-            <p><b>Дата: {{ el.date.date() }}</b></p>
-            <a href="/posts/{{ el.id }}" class="btn btn-warning">Открыть</a>
+	{% if articles|length > 0 %}
+	{% for el in articles %}
+	<div class="posts-card">
+		<h2 class="posts-card__title">
+			{{ el.title }}
+		</h2>
+		<p class="posts-card__intro">
+			{{ el.intro }}
+		</p>
+		<div class="posts-card__group">
+			<p class="posts-card__author">
+				Автор: <span>{{ authors[el.id].login }}</span>
+			</p>
+			<p class="posts-card__date">
+				Дата: {{ el.date.date() }}
+			</p>
+		</div>
 
-        </div>
-        {% endfor %}
+		<a class="posts-card__open" href="/posts/{{ el.id }}">
+			Открыть
+		</a>
 
-    {%  else %}
-    <p>Еще нет файлов</p>
-    {% endif %}
+	</div>
+	{% endfor %}
+
+	{% else %}
+	<p>Еще нет файлов</p>
+	{% endif %}
 </div>
 {% endblock %}
