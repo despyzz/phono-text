@@ -1,6 +1,7 @@
 @import "fonts";
 
 .posts {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   max-width: 800px;
@@ -11,6 +12,20 @@
     color: #333333;
     margin-bottom: 20px;
     text-align: center;
+  }
+
+  &__subtitle {
+    @include manrope-font(24px, bold);
+    color: #333333;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  &__empty {
+    @include manrope-font(24, regular);
+    text-align: center;
+    font-style: italic;
+    color: #989898;
   }
 
   &-card {

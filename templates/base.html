@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="../static/css/default.css">
 	<link rel="stylesheet" href="../static/css/login.css">
 	<link rel="stylesheet" href="../static/css/posts.css">
+	<link rel="stylesheet" href="../static/css/input.css">
 
 	<title>
 		{% block title %}
@@ -19,49 +20,24 @@
 <body>
 
 <header class="header">
-	<div class="header__wrapper">
-		<a href="/">
-			<img
-				class="header__logo"
-				src="../static/images/logo.png"
-				alt=""
-			/>
-		</a>
-		<div class="header__info">
-			<nav class="header__nav">
-				<ul>
-
-					<li>
-						<a href="/" class="header__nav-link">
-							Главная
-						</a>
-					</li>
-
-					<li>
-						<a href="/about" class="header__nav-link">
-							О нас
-						</a>
-					</li>
-
-					<li>
-						<a href="/contact" class="header__nav-link">
-							Контакты
-						</a>
-					</li>
-
-				</ul>
-			</nav>
-
-			<div class="header__buttons">
-
-				<button class="button button--register">
-					Регистрация
-				</button>
-
-				<button class="button button--login">
-					Вход
-				</button>
-
+	<div class="container">
+		<div class="header__wrapper">
+			<a href="/">
+				<img
+					class="header__logo"
+					src="../static/images/logo.png"
+					alt=""
+				/>
+			</a>
+			<div class="header__info">
+				<div class="header__buttons">
+					<button class="button button--register">
+						Регистрация
+					</button>
+					<button class="button button--login">
+						Вход
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -86,8 +62,10 @@
 </div>
 
 <main class="main">
-	{% block body %}
-	{% endblock %}
+	<div class="container">
+		{% block body %}
+		{% endblock %}
+	</div>
 </main>
 
 <footer class="footer">
@@ -95,7 +73,7 @@
 
 		<div class="footer__column">
 			<h3>О нас</h3>
-			<p>Наша компания предоставляет...</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, placeat.</p>
 		</div>
 
 		<div class="footer__column">
@@ -109,14 +87,18 @@
 			<ul>
 
 				<li>
-					<a href="/terms">
-						Условия использования
+					<a href="/">
+						Lorem ipsum dolor sit amet.
 					</a>
 				</li>
-
 				<li>
-					<a href="/privacy">
-						Политика конфиденциальности
+					<a href="/">
+						Lorem ipsum dolor sit amet.
+					</a>
+				</li>
+				<li>
+					<a href="/">
+						Lorem ipsum dolor sit amet.
 					</a>
 				</li>
 

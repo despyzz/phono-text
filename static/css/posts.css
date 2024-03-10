@@ -3,6 +3,7 @@
   src: url("../fonts/Manrope/Manrope-VariableFont_wght.woff2") format("woff2"), url("../fonts/Manrope/Manrope-VariableFont_wght.woff") format("woff"), url("../fonts/Manrope/Manrope-VariableFont_wght.ttf") format("truetype"), url("../fonts/Manrope/Manrope-VariableFont_wght.otf") format("opentype"), url("../fonts/Manrope/Manrope-VariableFont_wght.eot") format("embedded-opentype");
 }
 .posts {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   max-width: 800px;
@@ -16,6 +17,24 @@
   color: #333333;
   margin-bottom: 20px;
   text-align: center;
+}
+.posts__subtitle {
+  font-family: Manrope, serif;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: normal;
+  color: #333333;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.posts__empty {
+  font-family: Manrope, serif;
+  font-size: 24;
+  font-weight: regular;
+  line-height: normal;
+  text-align: center;
+  font-style: italic;
+  color: #989898;
 }
 .posts-card {
   display: flex;

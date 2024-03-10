@@ -6,36 +6,40 @@
 
 {% block body %}
 <div class="container mt-5">
-    <h1>Мои файлы</h1>
+	<h1 class="posts__title">
+		Мои файлы
+	</h1>
 
-    <h3>Опубликованные статьи:</h3>
-    <ul>
-        {% for article in articles %}
-            {% if article.status == 'published' %}
-                <li>
-                    <a href="{{ url_for('posts.posts_detail', id=article.id) }}">{{ article.title }}</a>
-                    <p>{{ article.intro }}</p>
-                    <p><b>Дата: {{ article.date.date() }}</b></p>
-                </li>
-            {% endif %}
-        {% endfor %}
-    </ul>
+	<h3 class="posts__subtitle">Опубликованные статьи:</h3>
+	<ul>
+		{% for article in articles %}
+		{% if article.status == 'published' %}
+		<li>
+			<a href="{{ url_for('posts.posts_detail', id=article.id) }}">{{ article.title }}</a>
+			<p>{{ article.intro }}</p>
+			<p><b>Дата: {{ article.date.date() }}</b></p>
+		</li>
+		{% endif %}
+		{% endfor %}
+	</ul>
 
-    <h3>Черновики:</h3>
-    <ul>
-        {% for article in articles %}
-            {% if article.status == 'draft' %}
-                <li>
-                    <a href="{{ url_for('posts.posts_detail', id=article.id) }}">{{ article.title }}</a>
-                    <p>{{ article.intro }}</p>
-                    <p><b>Дата: {{ article.date.date() }}</b></p>
-                </li>
-            {% endif %}
-        {% endfor %}
-    </ul>
+	<h3 class="posts__subtitle">Черновики:</h3>
+	<ul>
+		{% for article in articles %}
+		{% if article.status == 'draft' %}
+		<li>
+			<a href="{{ url_for('posts.posts_detail', id=article.id) }}">{{ article.title }}</a>
+			<p>{{ article.intro }}</p>
+			<p><b>Дата: {{ article.date.date() }}</b></p>
+		</li>
+		{% endif %}
+		{% endfor %}
+	</ul>
 
-    {% if articles|length == 0 %}
-        <p>Еще нет файлов</p>
-    {% endif %}
+	{% if articles|length == 0 %}
+	<p class="posts__empty">
+		Еще нет файлов
+	</p>
+	{% endif %}
 </div>
 {% endblock %}

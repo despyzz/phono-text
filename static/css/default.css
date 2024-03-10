@@ -15,6 +15,12 @@ body {
   min-height: 100vh;
 }
 
+.container {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .header {
   background-color: #333;
   color: #fff;
@@ -23,9 +29,8 @@ body {
 }
 .header__wrapper {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 0 auto;
-  max-width: 1170px;
 }
 .header__info {
   display: flex;
@@ -101,7 +106,6 @@ body {
 
 .main {
   flex: 1;
-  max-width: 1000px;
   width: 100%;
   align-self: center;
 }
@@ -120,6 +124,7 @@ body {
 }
 .footer__column {
   text-align: left;
+  flex: 1;
 }
 .footer__column h3 {
   font-family: Manrope, serif;
