@@ -5,24 +5,46 @@
 {% endblock %}
 
 {% block body %}
-<div class="container mt-5">
-    <h1>{{ article.title }}</h1>
+<div class="posts">
+	<div class="posts-details">
+		<h1 class="posts-details__title">{{ article.title }}</h1>
 
-    <div class="alert alert-info">
-        <p>{{ article.text }}</p>
-        <p><b>Дата: {{ article.date.date() }}</b></p>
-        <p><b>Автор: {{ author.login }}</b></p>
-        {% if flag %}
-          <a href="/posts/{{ article.id }}/del" class="btn btn-danger">Удалить</a>
-          <a href="/posts/{{ article.id }}/update" class="btn btn-success">Редактировать</a>
-          <a href="/posts/{{ article.id }}/get_file_history" class="btn btn-success">Посмотреть историю</a>
+		<div class="posts-details__content">
+			<p class="posts-details__subtitle">{{ article.text }}</p>
+			<p class="posts-details__date">Дата: {{ article.date.date() }}</p>
+			<p class="posts-details__author">Автор: {{ author.login }}</p>
+			{% if flag %}
+			<div class="posts-details__group">
+				<a
+					class="posts-details__button posts-details__button--history"
+					href="/posts/{{ article.id }}/get_file_history"
+				>
+					Посмотреть историю
+				</a>
+				<a
+					class="posts-details__button posts-details__button--edit"
+					href="/posts/{{ article.id }}/update"
+				>
+					Редактировать
+				</a>
+				<a
+					class="posts-details__button posts-details__button--delete"
+					href="/posts/{{ article.id }}/del"
+				>
+					Удалить
+				</a>
+			</div>
+			{% if article.status == "draft" %}
+			<a
+				class="posts-details__button posts-details__button--publish"
+				href="/posts/{{ article.id }}/publish-draft"
+			>
+				Опубликовать черновик
+			</a>
+			{% endif %}
+			{% endif %}
 
-            {% if article.status == "draft" %}
-            <a href="/posts/{{ article.id }}/publish-draft" class="btn btn-success">Опубликовать черновик</a>
-            {% endif %}
-        {% endif %}
-
-    </div>
-
+		</div>
+	</div>
 </div>
 {% endblock %}
