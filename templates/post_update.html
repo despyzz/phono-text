@@ -5,20 +5,87 @@
 {% endblock %}
 
 {% block body %}
-<div class ="container mt-5">
-    <h1>  Редактирование </h1>
-    <form method="post">
-        <input type="text" name="title" id="title" class="form-control" value="{{ article.title }}" placeholder="Введите название"><br>
-        <textarea name="intro" id="intro" class="form-control" placeholder="Введите описание">{{ article.intro }}</textarea><br>
-        <textarea name="text" id="text" class="form-control" placeholder="Введите текст">{{ article.text }}</textarea>
-        <textarea name="commit" id="commit" class="form-control" placeholder="Введите коммит"></textarea>
-        <input type="submit" name="update" class="btn btn-success" value="Обновить"></a>
-        <input type="submit" name="save_changes" class="btn btn-success" value="Сохранить версию текста"></a><p>
+<h1 class="posts__title">
+	Редактирование
+</h1>
+<form class="edit-form" method="post">
+	<label class="label">
+		<p class="subtitle">
+			Название
+		</p>
+		<input
+			class="input"
+			type="text"
+			name="title"
+			id="title"
+			value="{{ article.title }}"
+			placeholder="Введите название"
+		/>
+	</label>
 
-        {% if current_user.id == article.user_id %}
-        <label for="access_users">Пользователи, которым предоставить доступ (через запятую):</label>
-        <input type="text" name="access_users" id="access_users" class="form-control" placeholder="Введите логины через запятую"><br>
-        {% endif %}
-    </form>
-</div>
+	<label class="label">
+		<p class="subtitle">
+			Описание
+		</p>
+		<textarea
+			class="textarea textarea--description"
+			name="intro"
+			id="intro"
+			placeholder="Введите описание"
+		>
+			{{ article.intro }}
+			</textarea>
+	</label>
+
+
+	<label class="label">
+		<p class="subtitle">
+			Основная часть
+		</p>
+		<textarea
+			class="textarea textarea--main"
+			name="text"
+			id="text"
+			placeholder="Введите текст"
+		>
+			{{ article.text }}
+		</textarea>
+	</label>
+
+	<label class="label">
+		<p class="subtitle">
+			Сообщение коммита
+		</p>
+		<textarea
+			class="textarea textarea--description"
+			name="commit"
+			id="commit"
+			placeholder="Введите сообщение коммита"
+		></textarea>
+	</label>
+
+	{% if current_user.id == article.user_id %}
+	<label class="label">
+		<p class="subtitle">Пользователи, которым предоставить доступ (через запятую):</p>
+		<textarea
+			class="textarea textarea--description"
+			name="access_users"
+			placeholder="Введите логины через запятую"
+		></textarea>
+	</label>
+	{% endif %}
+
+	<input
+		class="update-button"
+		type="submit"
+		name="update"
+		value="Обновить"
+	>
+	<input
+		class="save-button"
+		type="submit"
+		name="save_changes"
+		value="Сохранить версию"
+	>
+</form>
 {% endblock %}

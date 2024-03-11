@@ -47,7 +47,8 @@
   line-height: normal;
 }
 
-.create-form {
+.create-form,
+.edit-form {
   display: flex;
   flex-direction: column;
   max-width: 800px;
@@ -55,20 +56,38 @@
   gap: 20px;
 }
 
-.create-button {
+.create-button,
+.update-button {
   border-radius: 5px;
   font-family: Manrope, serif;
   font-size: 20px;
   font-weight: bold;
   line-height: normal;
   border: none;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding: 20px;
   background-color: #007bff;
   color: #fff;
 }
-.create-button:hover {
+.create-button:hover,
+.update-button:hover {
   background-color: #0056b3;
+}
+
+.save-button {
+  border-radius: 5px;
+  font-family: Manrope, serif;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: normal;
+  border: none;
+  margin-bottom: 10px;
+  padding: 20px;
+  background-color: #28a745;
+  color: #fff;
+}
+.save-button:hover {
+  background-color: #218838;
 }
 
 /*# sourceMappingURL=input.css.map */
